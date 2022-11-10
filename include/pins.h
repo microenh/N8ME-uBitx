@@ -19,3 +19,5 @@ const byte TX_LPF_A = 5;
 const byte TX_LPF_B = 4;
 const byte TX_LPF_C = 3;
 const byte CW_KEY = 2;
+const byte TFT_CS = 10;
+const byte TFT_DC =  9;

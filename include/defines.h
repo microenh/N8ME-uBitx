@@ -23,3 +23,4 @@
 #define USE_AUTO_SAVE       // Periodic auto-save VFOs 
 #define USE_WINKEY          // Winkeyer (CW - tip, PTT - ring) option on paddle jack
 // #define USE_RX_ONLY         // disable all TX functions
+#define USE_SCREEN_DUMP     // add screen dump feature

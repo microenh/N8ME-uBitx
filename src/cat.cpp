@@ -24,6 +24,61 @@ const byte CAT_RX_QUERY  = 0xe7;
 const byte CAT_RIT_AMT   = 0xf5;
 const byte CAT_TX_QUERY  = 0xf7;
 
+#ifdef USE_SCREEN_DUMP
+
+#include <SPI.h>
+#include "pins.h"
+
+#define COLMAX 319
+#define PAGMAX 239
+
+void screen_dump(void) {
+  // uint16_t R = 0;
+  // uint16_t G = 0;
+  // uint16_t B = 0;
+
+  SPI.begin();
+  SPI.setClockDivider(SPI_CLOCK_DIV4); // 4 MHz (half speed)
+  SPI.setBitOrder(MSBFIRST);
+  SPI.setDataMode(SPI_MODE0); 
+
+  pinMode(TFT_CS,OUTPUT);
+  pinMode(TFT_DC,OUTPUT);
+  digitalWrite(TFT_CS, LOW);
+  
+  digitalWrite(TFT_DC, LOW);
+  SPI.transfer16(0x2A); // CASET
+  digitalWrite(TFT_DC, HIGH);
+  SPI.transfer16(0);   //start
+  SPI.transfer16(COLMAX); // stop
+
+  digitalWrite(TFT_DC, LOW);
+  SPI.transfer16(0x2B); // PASET
+  digitalWrite(TFT_DC, HIGH);
+  SPI.transfer16(0);  //start
+  SPI.transfer16(PAGMAX); //stop
+
+  digitalWrite(TFT_DC, LOW);
+  SPI.transfer16(0x2E); // RAMRD
+  digitalWrite(TFT_DC, HIGH);
+  SPI.transfer(0x0); // dummy
+
+  for (int y = 0; y <= PAGMAX; y++){
+    for (int x = 0; x <= COLMAX; x++){
+      Serial.write(SPI.transfer(0x0));        
+      Serial.write(SPI.transfer(0x0));        
+      Serial.write(SPI.transfer(0x0));        
+    }
+  }
+  
+  digitalWrite(TFT_CS, HIGH);
+  SPI.endTransaction();
+}
+
+const byte CAT_SCREEN_DUMP = 'D';
+#endif
+
+
 // undocumented
 const byte CAT_READ_EEPROM = 0xbb;
 const byte CAT_READ_TX_METER = 0xbd;
@@ -158,6 +213,13 @@ void CATcheck(void) {
           Serial.write(0x00);
           Serial.write(0x00);
           break;
+
+        #ifdef USE_SCREEN_DUMP
+          case CAT_SCREEN_DUMP:
+            screen_dump();
+            break;
+        #endif
+
       }
     }
   }
