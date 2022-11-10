@@ -1,0 +1,2 @@
+Need to check mode when operating split.
+Need to work on calibration.  Move calibration to separate file.
