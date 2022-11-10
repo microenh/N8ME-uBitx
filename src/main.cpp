@@ -15,7 +15,11 @@ void setup() {
   // put your setup code here, to run once:
 
   #ifdef USE_CAT
-    Serial.begin(38400, SERIAL_8N2);
+    #ifdef USE_SCREEN_DUMP
+      Serial.begin(1000000, SERIAL_8N1);
+    #else
+      Serial.begin(38400, SERIAL_8N2);
+    #endif
     Serial.flush();
   #endif
 
