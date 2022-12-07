@@ -80,7 +80,6 @@ void touch_update(){
   z += (4095 - z2);
 
   #ifdef DO_DEBUG
-  #ifdef USE_SERIAL
   if (z > Z_THRESHOLD) {
     Serial.print(F("z1:"));
     Serial.print(z1);
@@ -89,7 +88,6 @@ void touch_update(){
     Serial.print(F(" z:"));
     Serial.println(z);
   }
-  #endif
   #endif
 
   zraw = z;
@@ -146,14 +144,13 @@ bool readTouch(Point &touch_point_out){
   touch_point_out.z = zraw;
   if (zraw >= Z_THRESHOLD) {
     #ifdef DO_DEBUG
-    #ifdef USE_SERIAL
-    Serial.print(F("readTouch found zraw of "));Serial.println(zraw);
+    Serial.print(F("readTouch found zraw of "));
+    Serial.println(zraw);
     Serial.print(touch_point_out.x);
     Serial.print(",");
     Serial.print(touch_point_out.y);
     Serial.print(",");
     Serial.println(touch_point_out.z);
-    #endif
     #endif
     return true;
   }
@@ -164,10 +161,8 @@ void scaleTouch(Point &p) {
   p.x = ((long)(p.x - radio_obj.offset_x) * 10l) / (long) radio_obj.slope_x / BUTTON_WIDTH;
   p.y = ((long)(p.y - radio_obj.offset_y) * 10l) / (long) radio_obj.slope_y / BUTTON_HEIGHT;
   #ifdef DO_DEBUG
-  #ifdef USE_SERIAL
   if (p.z > Z_THRESHOLD) {
     Serial.print(p.x); Serial.print(",");Serial.println(p.y);
   }
-  #endif
   #endif
 }
