@@ -34,6 +34,7 @@ bool setup_loop::touch(const byte button) {
            #endif
            );
       break;
+    #ifdef USE_CFG_FREQ
     case BUTTON_FREQ:
       return !(
                radio_obj.in_cw_pitch
@@ -44,6 +45,8 @@ bool setup_loop::touch(const byte button) {
            #endif
            );
       break;
+    #endif
+    #ifdef USE_CFG_BFO
     case BUTTON_BFO:
       return !(
                radio_obj.in_cw_pitch
@@ -54,6 +57,7 @@ bool setup_loop::touch(const byte button) {
            #endif
            );
       break;
+    #endif
   }
   return true;
 }

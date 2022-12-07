@@ -3,9 +3,13 @@
 #include "radio.h"
 
 void setup_loop::highlight_clear_button(const byte button, bool highlight) {
-  if (
-        (button == BUTTON_FREQ       && radio_obj.in_freq_cal)
+  if ( 0 
+     #ifdef USE_CFG_FREQ 
+     || (button == BUTTON_FREQ       && radio_obj.in_freq_cal)
+     #endif
+     #ifdef USE_CFG_BFO
      || (button == BUTTON_BFO        && radio_obj.in_bfo_cal) 
+     #endif
      || (button == BUTTON_CWP        && radio_obj.in_cw_pitch)
      #ifdef USE_TUNE
      || (button == BUTTON_TUNE_PWR   && radio_obj.in_tune_pwr)

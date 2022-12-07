@@ -3,11 +3,11 @@
 // use the defines below to enable or disable features
 // ---------------------------------------------------
 #define USE_CAT             // CAT, subset of Yaesu FT817ND - works with WSJT-X and FLDigi hamlib
-// #define USE_HAM_BAND     // band selection screen (ham bands)
+#define USE_HAM_BAND     // band selection screen (ham bands)
 
 // MEE add-ons
 // #define USE_BC_BAND      // band selection screen (broadcast bands)
-#define USE_MEMORY          // M1 .. M5 buttons
+// #define USE_MEMORY          // M1 .. M5 buttons
 // #define USE_RF_SHIFT     // RF shift - provides an adjustable RF shift
 #define USE_RF_SHIFT_STEP   // RF shift - provides stepped settings of 0, -10dB, -20dB, -30dB
 #define USE_ATTN            // RF Attenuator - based on reducing drive level of 1st IF
@@ -24,3 +24,6 @@
 #define USE_WINKEY          // Winkeyer (CW - tip, PTT - ring) option on paddle jack
 // #define USE_RX_ONLY      // disable all TX functions
 // #define USE_SCREEN_DUMP  // add screen dump feature
+// #define USE_CFG_FREQ        // add option for frequency calibration
+// #define USE_CFG_BFO         // add option for BFO calibration
+// #define USE_CFG_TOUCH       // add option for touch calibration

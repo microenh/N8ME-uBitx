@@ -7,12 +7,16 @@
 
 void setup_loop::button_text(const byte button) {
   switch(button) {
+    #ifdef USE_CFG_FREQ
     case BUTTON_FREQ:
       disp.set_button_texts(FREQ1, CAL);
       break;
+    #endif
+    #ifdef USE_CFG_BFO
     case BUTTON_BFO:
       disp.set_button_texts(BFO, CAL);
       break;
+    #endif
     case BUTTON_DELAY:
       strcpy_P(str_buffer1, DELAY);
       disp.int_to_str_buffer(str_buffer2, radio_obj.cw_delaytime * CW_DELAY_MULTIPLE);
@@ -21,9 +25,11 @@ void setup_loop::button_text(const byte button) {
       strcpy_P(str_buffer1, KEYER);
       strcpy_P(str_buffer2, radio_obj.keyer_name());
       break;
+    #ifdef USE_CFG_TOUCH
     case BUTTON_TOUCH:
       disp.set_button_texts(TOUCH, CAL);
       break;
+    #endif
     #ifdef USE_PDL_POL
       case BUTTON_PADDLE:
         strcpy_P(str_buffer1, PADDLE);

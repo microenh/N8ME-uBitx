@@ -5,9 +5,15 @@
 #include <Arduino.h>
 
 const byte BUTTON_KEYER      = 13;
+#ifdef USE_CFG_TOUCH
 const byte BUTTON_TOUCH      = 15;
+#endif
+#ifdef USE_CFG_FREQ
 const byte BUTTON_FREQ       = 18;
+#endif
+#ifdef USE_CFG_BFO
 const byte BUTTON_BFO        = 19;
+#endif
 const byte BUTTON_DELAY      = 17;
 #ifdef USE_TUNE
 const byte BUTTON_TUNE_PWR   = 16;

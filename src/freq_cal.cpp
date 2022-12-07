@@ -1,4 +1,5 @@
 #include "display.h"
+#include "defines.h"
 #include "radio.h"
 #include "loop_master.h"
 #include "parameter_limits.h"
@@ -25,11 +26,14 @@ void radio::adj_master_cal(const bool inc) {
   loop_master::active->update_freq_cal_display();
 }
 
+#ifdef USE_CFG_FREQ
 void setup_loop::update_freq_cal(void) {
   highlight_clear_button(BUTTON_FREQ, false);
   disp.display_freq_cal(!radio_obj.in_freq_cal);
 }
 
+
 void setup_loop::update_freq_cal_display(void) {
   disp.display_freq_cal(false);
 }
+#endif

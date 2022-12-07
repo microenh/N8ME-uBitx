@@ -1,4 +1,5 @@
 #include "display.h"
+#include "defines.h"
 #include "radio.h"
 #include "loop_master.h"
 #include "parameter_limits.h"
@@ -26,6 +27,7 @@ void radio::adj_bfo(const bool inc) {
   loop_master::active->update_bfo_cal_display();  
 }
 
+#ifdef USE_CFG_BFO
 void setup_loop::update_bfo_cal(void) {
   highlight_clear_button(BUTTON_BFO, false);
   disp.display_bfo_cal(!radio_obj.in_bfo_cal);
@@ -34,3 +36,4 @@ void setup_loop::update_bfo_cal(void) {
 void setup_loop::update_bfo_cal_display(void) {
   disp.display_bfo_cal(false);
 }
+#endif

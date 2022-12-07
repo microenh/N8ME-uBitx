@@ -26,11 +26,15 @@ class setup_loop : public loop_master {
   virtual void update_cw_delay(void);
   virtual void update_cw_delay_display(void);
 
+  #ifdef USE_CFG_FREQ
   virtual void update_freq_cal(void);
   virtual void update_freq_cal_display(void);
+  #endif
 
+  #ifdef USE_CFG_BFO
   virtual void update_bfo_cal(void);
   virtual void update_bfo_cal_display(void);
+  #endif
 
   #ifdef USE_TUNE
   virtual void update_tune_pwr(void);

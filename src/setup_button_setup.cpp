@@ -5,11 +5,17 @@
 
 void setup_loop::button_setup(void) {
   all_buttons    =
-  draw_buttons   = BUTTON_BIT(BUTTON_FREQ)
+  draw_buttons   = BUTTON_BIT(BUTTON_DELAY)
+                 #ifdef USE_CFG_BFO
                  | BUTTON_BIT(BUTTON_BFO)
-                 | BUTTON_BIT(BUTTON_DELAY)
+                 #endif
+                 #ifdef USE_CFG_FREQ
+                 | BUTTON_BIT(BUTTON_FREQ)
+                 #endif
                  | BUTTON_BIT(BUTTON_KEYER)
+                 #ifdef USE_CFG_TOUCH
                  | BUTTON_BIT(BUTTON_TOUCH)
+                 #endif
                  #ifdef USE_PDL_POL
                  | BUTTON_BIT(BUTTON_PADDLE)
                  #endif
@@ -24,13 +30,19 @@ void setup_loop::button_setup(void) {
                  | BUTTON_BIT(BUTTON_CANCEL)
                  ;
                 
-  twoline_buttons = BUTTON_BIT(BUTTON_FREQ)
-                  | BUTTON_BIT(BUTTON_DELAY)
+  twoline_buttons = BUTTON_BIT(BUTTON_DELAY)
+                  #ifdef USE_CFG_FREQ
+                  | BUTTON_BIT(BUTTON_FREQ)
+                  #endif
                   #ifdef USE_PDL_POL
                   | BUTTON_BIT(BUTTON_PADDLE)
                   #endif
+                  #ifdef USE_CFG_BFO
                   | BUTTON_BIT(BUTTON_BFO)
+                  #endif
+                  #ifdef USE_CFG_TOUCH
                   | BUTTON_BIT(BUTTON_TOUCH)
+                  #endif
                   #ifdef USE_TUNE
                   | BUTTON_BIT(BUTTON_TUNE_PWR)
                   #endif

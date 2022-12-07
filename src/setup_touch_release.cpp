@@ -35,9 +35,11 @@ void setup_loop::touch_release(const byte button) {
       break;
     #endif
 
+    #ifdef USE_CFG_TOUCH
     case BUTTON_TOUCH:
       next = &loop_ts_calibration;
       break;
+    #endif
 
     case BUTTON_CWP:
       radio_obj.toggle_cw_pitch();
@@ -47,13 +49,17 @@ void setup_loop::touch_release(const byte button) {
       radio_obj.toggle_cw_delay();
       break;
 
+    #ifdef USE_CFG_BFO
     case BUTTON_BFO:
       radio_obj.toggle_bfo_cal();
       break;
+    #endif
 
+    #ifdef USE_CFG_FREQ
     case BUTTON_FREQ:
       radio_obj.toggle_freq_cal();
       break;
+    #endif
 
     #ifdef USE_TUNE
     case BUTTON_TUNE_PWR:
