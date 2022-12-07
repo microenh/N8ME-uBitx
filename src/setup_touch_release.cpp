@@ -70,8 +70,12 @@ void setup_loop::touch_release(const byte button) {
     case SWITCH:
       if (radio_obj.in_cw_delay) radio_obj.toggle_cw_delay();
       if (radio_obj.in_cw_pitch) radio_obj.toggle_cw_pitch();
-      if (radio_obj.in_bfo_cal)  radio_obj.toggle_bfo_cal();
-      if (radio_obj.in_freq_cal) radio_obj.toggle_freq_cal();
+      #ifdef USE_CFG_BFO
+        if (radio_obj.in_bfo_cal)  radio_obj.toggle_bfo_cal();
+      #endif
+      #ifdef USE_CFG_FREQ
+        if (radio_obj.in_freq_cal) radio_obj.toggle_freq_cal();
+      #endif
       #ifdef USE_TUNE
         if (radio_obj.in_tune_pwr) radio_obj.toggle_tune_pwr();
       #endif

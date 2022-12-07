@@ -3,6 +3,7 @@
 
 #include "loop_master.h"
 
+#ifdef USE_CFG_TOUCH
 class ts_calibration_loop : public loop_master {
   virtual void init(void);
   virtual void setup(void);
@@ -16,3 +17,4 @@ class ts_calibration_loop : public loop_master {
 };
 
 extern ts_calibration_loop loop_ts_calibration;
+#endif

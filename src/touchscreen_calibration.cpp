@@ -5,6 +5,8 @@
 #include "radio.h"
 #include "str_buffer.h"
 
+#ifdef USE_CFG_TOUCH
+
 void ts_calibration_loop::init(void) {
   touchscreen_buttons = false;
   disp.banner_override = TOUCH_CAL;
@@ -69,3 +71,5 @@ void ts_calibration_loop::touch_release(const byte button) {
 }
 
 ts_calibration_loop loop_ts_calibration;
+
+#endif

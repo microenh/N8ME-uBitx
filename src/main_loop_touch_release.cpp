@@ -131,7 +131,9 @@ void main_loop::touch_release(const byte button) {
       #ifdef USE_SPOT
         else if (radio_obj.spot) radio_obj.toggle_spot();
       #endif
-      else next = &loop_ts_calibration;
+      #ifdef USE_CFG_TOUCH
+        else next = &loop_ts_calibration;
+      #endif
     break;
   } 
 }
