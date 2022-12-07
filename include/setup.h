@@ -41,6 +41,10 @@ class setup_loop : public loop_master {
   virtual void update_tune_pwr_display(void);
   #endif
 
+  #ifdef USE_MEMORY
+  bool erase_memory = false;
+  #endif
+
 };
 
 extern setup_loop loop_setup;

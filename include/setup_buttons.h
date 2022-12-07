@@ -28,4 +28,7 @@ enum SETUP_BUTTONS {
     #ifdef USE_TX_DIS
         BUTTON_TX_DISABLE,
     #endif
+    #ifdef USE_MEMORY
+        BUTTON_CLR_MEMORY,
+    #endif
 };

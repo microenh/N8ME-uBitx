@@ -1,2 +1,5 @@
 Need to check mode when operating split.
 Need to work on calibration.  Move calibration to separate file.
+
+12/7/2022 [mee]: added RESET MEMORY BUTTON
+  on config screen, highlight the RESET MEMORY button and select SAVE

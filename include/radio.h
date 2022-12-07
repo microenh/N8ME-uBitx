@@ -156,6 +156,7 @@ class radio {
     static void clear_setup_highlights(void);
     #ifdef USE_MEMORY
     static void write_memory_eeprom(const byte which);
+    static void erase_memory_eeprom(void);
     static void read_memory_eeprom(const byte which);
     static bool check_memory_eeprom(const byte which, VFO_DATA &v);
     #endif

@@ -57,7 +57,7 @@ const byte MEE_ATTN = _BV(5);
 
 void radio::reset_mee_eeprom(void) {
   // reset all the EEPROM memory not used by the stock firmware
-  for (int i = CW_KEY_TYPE + 1; i < (int) EEPROM.length(); EEPROM.update(i++, 0)); 
+  for (int i = CW_KEY_TYPE + 1; i < (int) EEPROM.length(); EEPROM.update(i++, 255)); 
 }
 
 // read EEPROM settings from setup screens
@@ -223,9 +223,15 @@ void radio::restore_settings(void) {
 // ********************
 
 #ifdef USE_MEMORY
-void radio::write_memory_eeprom(const byte which) {;
+void radio::write_memory_eeprom(const byte which) {
   EEPROM.put(MEE_MEM + sizeof(VFO_DATA) * which, vfo_data[using_vfo_b]);
   loop_master::active->update_memory(which);
+}
+
+void radio::erase_memory_eeprom(void) {
+  for (int i = MEE_MEM; i < MEE_MEM + (int) sizeof(VFO_DATA) * 5; i++) {
+    EEPROM.update(i, 255);
+  }  
 }
 
 bool radio::check_memory_eeprom(const byte which, VFO_DATA &v) {

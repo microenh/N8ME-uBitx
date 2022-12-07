@@ -28,6 +28,9 @@ void setup_loop::button_setup(void) {
                  #endif
                  | BUTTON_BIT(BUTTON_CWP)
                  | BUTTON_BIT(BUTTON_CANCEL)
+                 #ifdef USE_MEMORY
+                 | BUTTON_BIT(BUTTON_CLR_MEMORY)
+                 #endif
                  ;
                 
   twoline_buttons = BUTTON_BIT(BUTTON_DELAY)
@@ -51,6 +54,9 @@ void setup_loop::button_setup(void) {
                   #endif
                   | BUTTON_BIT(BUTTON_CWP)
                   | BUTTON_BIT(BUTTON_KEYER)
+                  #ifdef USE_MEMORY
+                  | BUTTON_BIT(BUTTON_CLR_MEMORY)
+                  #endif
                   ;
 
   textsize1_buttons = BUTTON_BIT(BUTTON_CANCEL)

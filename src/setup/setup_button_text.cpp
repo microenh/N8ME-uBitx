@@ -56,6 +56,12 @@ void setup_loop::button_text(const byte button) {
     case BUTTON_CWP:
       strcpy_P(str_buffer1, CWP);
       disp.int_to_str_buffer(str_buffer2, radio_obj.sidetone_frequency);
-      break;    
+      break;
+    #ifdef USE_MEMORY
+    case BUTTON_CLR_MEMORY:
+      strcpy_P(str_buffer1, RESET);
+      strcpy_P(str_buffer2, MEMORY);
+      break;
+    #endif    
   }
 }

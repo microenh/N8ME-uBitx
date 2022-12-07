@@ -15,6 +15,11 @@ void setup_loop::touch_release(const byte button) {
 
     case BUTTON_SAVE:
       radio_obj.clear_setup_highlights();
+      #ifdef USE_MEMORY
+      if (erase_memory) {
+        radio_obj.erase_memory_eeprom();
+      }
+      #endif
       radio_obj.write_eeprom();  
       next = &loop_main;
       break;
@@ -64,6 +69,13 @@ void setup_loop::touch_release(const byte button) {
     #ifdef USE_TUNE
     case BUTTON_TUNE_PWR:
       radio_obj.toggle_tune_pwr();
+      break;
+    #endif
+
+    #ifdef USE_MEMORY
+    case BUTTON_CLR_MEMORY:
+      erase_memory = !erase_memory;
+      highlight_clear_button(BUTTON_CLR_MEMORY, erase_memory);
       break;
     #endif
 
