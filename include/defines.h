@@ -3,7 +3,7 @@
 // use the defines below to enable or disable features
 // ---------------------------------------------------
 #define USE_CAT             // CAT, subset of Yaesu FT817ND - works with WSJT-X and FLDigi hamlib
-// #define USE_HAM_BAND        // band selection screen (ham bands)
+#define USE_HAM_BAND        // band selection screen (ham bands)
 
 // MEE add-ons
 // #define USE_BC_BAND      // band selection screen (broadcast bands)
