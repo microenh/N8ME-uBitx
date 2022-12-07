@@ -4,26 +4,28 @@
 
 #include <Arduino.h>
 
-const byte BUTTON_KEYER      = 13;
-#ifdef USE_CFG_TOUCH
-const byte BUTTON_TOUCH      = 15;
-#endif
-#ifdef USE_CFG_FREQ
-const byte BUTTON_FREQ       = 18;
-#endif
-#ifdef USE_CFG_BFO
-const byte BUTTON_BFO        = 19;
-#endif
-const byte BUTTON_DELAY      = 17;
-#ifdef USE_TUNE
-const byte BUTTON_TUNE_PWR   = 16;
-#endif
-#ifdef USE_PDL_POL
-const byte BUTTON_PADDLE     = 14;
-#endif
-#ifdef USE_TX_DIS
-const byte BUTTON_TX_DISABLE = 20;
-#endif
-const byte BUTTON_CWP        = 12;
-const byte BUTTON_CANCEL     = 10;
-const byte BUTTON_SAVE       = 11;
+enum SETUP_BUTTONS {
+    BUTTON_CANCEL = 10,
+    BUTTON_SAVE,
+    BUTTON_CWP,
+    BUTTON_KEYER,
+    #ifdef USE_PDL_POL
+        BUTTON_PADDLE,
+    #endif
+    #ifdef USE_CFG_TOUCH
+        BUTTON_TOUCH,
+    #endif
+    #ifdef USE_TUNE
+        BUTTON_TUNE_PWR,
+    #endif
+    BUTTON_DELAY,
+    #ifdef USE_CFG_FREQ
+        BUTTON_FREQ,
+    #endif
+    #ifdef USE_CFG_BFO
+        BUTTON_BFO,
+    #endif
+    #ifdef USE_TX_DIS
+        BUTTON_TX_DISABLE,
+    #endif
+};

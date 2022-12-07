@@ -5,20 +5,26 @@
 #include "main_loop.h"
 #include "texts.h"
 
-const byte BUTTON_1 = 11;
-const byte BUTTON_2 = 12;
-const byte BUTTON_3 = 13;
-const byte BUTTON_4 = 16;
-const byte BUTTON_5 = 17;
-const byte BUTTON_6 = 18;
-const byte BUTTON_7 = 21;
-const byte BUTTON_8 = 22;
-const byte BUTTON_9 = 23;
-const byte BUTTON_0 = 27;
-const byte BUTTON_BS = 24;
+enum KEYPAD_BUTTONS {
+  // first row
+  BUTTON_1 = 11,
+  BUTTON_2,
+  BUTTON_3,
+  BUTTON_KHZ,
+  // second row
+  BUTTON_4 = 16,
+  BUTTON_5,
+  BUTTON_6,
+  BUTTON_CANCEL,
+  // third row
+  BUTTON_7 = 21,
+  BUTTON_8,
+  BUTTON_9,
+  BUTTON_BS,
+  // fourth row
+  BUTTON_0 = 27,
+};
 
-const byte BUTTON_KHZ = 14;
-const byte BUTTON_CANCEL = 19;
 
 long keypad_loop::value; 
 bool (*keypad_loop::return_value)(const long);
