@@ -1,4 +1,4 @@
 #include "texts.h"
 
 #undef IN_HEADER_FILE
-#include "texts.inc"
+#include "texts_inc.h"
