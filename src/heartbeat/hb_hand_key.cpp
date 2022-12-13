@@ -15,7 +15,9 @@ void hand_key(void) {
     }
     radio_obj.sidetone(down);
     digitalWrite(CW_KEY, down);
-    if (!down) {
+    if (down) {
+      tx_timeout = 0;   // bug found by VU3GAO
+    } else {
       tx_timeout = ((radio_obj.cw_delaytime * CW_DELAY_MULTIPLE) >> 3) + 1;
     }
   }
