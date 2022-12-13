@@ -20,7 +20,7 @@ from PIL import Image
 class Dumper:
     def __init__(self):
         self.i = 0
-        self.ubitx = serial.Serial('COM5', 1000000, stopbits=1, timeout=0.1)
+        self.ubitx = serial.Serial('/dev/tty.usbserial-2110', 1000000, stopbits=1, timeout=0.1)
         
     def __repr__(self):
         self.ubitx.write("0000D".encode('ascii'))

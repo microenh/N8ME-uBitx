@@ -7,7 +7,7 @@
 #include "setup_buttons.h"
 
 const byte FREQ_DIGITS = 8;
-const int MASTER_CAL_STEP = 175; // 875;
+const int MASTER_CAL_STEP = 25; // 175; // 875;
 
 void display::display_freq_cal(const bool clear) {
   update_info_number(clear ? __LONG_MAX__ : radio_obj.calibration, FREQ_DIGITS, INFO_TEXT_SIZE, true);

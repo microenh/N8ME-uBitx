@@ -24,6 +24,6 @@
 #define USE_WINKEY          // Winkeyer (CW - tip, PTT - ring) option on paddle jack
 // #define USE_RX_ONLY      // disable all TX functions
 // #define USE_SCREEN_DUMP  // add screen dump feature
-// #define USE_CFG_FREQ     // add option for frequency calibration
-// #define USE_CFG_BFO      // add option for BFO calibration
+#define USE_CFG_FREQ     // add option for frequency calibration
+#define USE_CFG_BFO      // add option for BFO calibration
 // #define USE_CFG_TOUCH    // add option for touch calibration
