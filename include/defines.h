@@ -10,7 +10,7 @@
 #define USE_MEMORY       // M1 .. M5 buttons
 // #define USE_RF_SHIFT     // RF shift - provides an adjustable RF shift
 #define USE_RF_SHIFT_STEP   // RF shift - provides stepped settings of 0, -10dB, -20dB, -30dB
-// #define USE_ATTN         // RF Attenuator - based on reducing drive level of 1st IF
+#define USE_ATTN         // RF Attenuator - based on reducing drive level of 1st IF
 #define USE_LOCK            // frequency lock
 #define USE_IF_SHIFT        // IF shift - tone control
 #define USE_SPOT            // CW spotting tone
